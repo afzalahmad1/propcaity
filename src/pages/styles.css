@@ -1,0 +1,27 @@
+.main-container{
+    /* border: 2px solid red; */
+    
+    min-height: 87vh;
+    /* height: 100%; */
+    /* position: relative; */
+    /* width: 100vw; */
+    /* color: #fff; */
+    /* margin-left: 3rem; */
+    /* font-family: poppins; */
+    /* background: rgb(3, 0, 31); */
+    display: flex;
+}
+
+
+.main{
+    /* border: 2px solid red; */
+    min-height: calc(100vh - 14rem);
+    margin: 2rem 4rem;
+}
+.right-container{
+    /* border: 2px solid green; */
+    flex: 11;
+}
+
+
+

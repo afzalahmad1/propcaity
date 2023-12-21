@@ -1,0 +1,25 @@
+.search-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px solid red; */
+  padding: 1rem 2rem;
+}
+.search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #ddd;
+  width: 500px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color:#fff;
+}
+.search input {
+  border: none;
+  outline: none;
+  width: 500px;
+}
+#keep{
+    font-size: 20px;
+}

@@ -1,0 +1,19 @@
+.card-Container{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+
+}
+.card{
+    border: 1px solid #ddd;
+    padding: .5rem 1rem;
+    border-radius: 7px;
+
+}
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}

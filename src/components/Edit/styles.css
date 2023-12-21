@@ -1,0 +1,16 @@
+.btn-flex{
+    /* border: 1px solid #229; */
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+}
+.btn{
+    border: 1px solid #229;
+    padding: .3rem 2rem;
+    border-radius: 10px;
+    background-color: #229;
+    color: #fff;
+    cursor: pointer;
+}

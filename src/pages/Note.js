@@ -6,27 +6,52 @@ import CreateModal from "../components/CreateModal";
 import Card from "../components/Card";
 import { useSelector } from "react-redux";
 import DeleteModal from "../components/DeletModal";
+import Edit from "../components/Edit";
 
 const Note = () => {
   const [aside, setAside] = useState(true);
   const [createNoteModal, setCreateNoteModal] = useState(false);
   const [deleteNoteModal, setDeleteNoteModal] = useState(false);
+  const [editNoteModal, setEditNoteModal] = useState(false);
   const [search, setSearch] = useState("");
   const [index, setIndex] = useState(null);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editObj, setEditObj] = useState({
+    title: "",
+    note: "",
+  });
   const [filterData, setFilterData] = useState([]);
   const notes = useSelector((state) => {
     return state.notes;
   });
   useEffect(() => {
     var arr = notes.filter((item) => {
-      return item.title.includes(search) || item.note.includes(search);
+      return (
+        item.title.toLowerCase().includes(search.toLowerCase()) ||
+        item.note.toLowerCase().includes(search.toLowerCase())
+      );
     });
     setFilterData(arr);
   }, [search]);
 
   return (
     <div>
-      {deleteNoteModal && <DeleteModal index={index} setDeleteNoteModal={setDeleteNoteModal} deleteNoteModal={deleteNoteModal}/>}
+      {editNoteModal && (
+        <Edit
+          editObj={editObj}
+          setEditObj={setEditObj}
+          setEditNoteModal={setEditNoteModal}
+          editNoteModal={editNoteModal}
+          editIndex={editIndex}
+        />
+      )}
+      {deleteNoteModal && (
+        <DeleteModal
+          index={index}
+          setDeleteNoteModal={setDeleteNoteModal}
+          deleteNoteModal={deleteNoteModal}
+        />
+      )}
       {createNoteModal && (
         <CreateModal setCreateNoteModal={setCreateNoteModal} />
       )}
@@ -46,7 +71,11 @@ const Note = () => {
               filterData={filterData}
               search={search}
               setDeleteNoteModal={setDeleteNoteModal}
+              setEditNoteModal={setEditNoteModal}
+              editNoteModal={editNoteModal}
               setIndex={setIndex}
+              setEditObj={setEditObj}
+              setEditIndex={setEditIndex}
             />
           </div>
         </div>

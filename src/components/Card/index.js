@@ -2,9 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
 import EditRoundedIcon from '@mui/icons-material/EditRounded';
-import { deleteNote } from "../../store/slices/NoteSlice"
 import "./styles.css";
-const Card = ({filterData,search,setDeleteNoteModal,setIndex}) => {
+const Card = ({filterData,search,setDeleteNoteModal,setIndex,setEditNoteModal,editNoteModal,setEditObj,setEditIndex}) => {
   const notes = useSelector((state) => {
     return state.notes;
   });
@@ -14,6 +13,15 @@ const Card = ({filterData,search,setDeleteNoteModal,setIndex}) => {
     setDeleteNoteModal(true)
     setIndex(idx)
     
+  }
+  const handleEdit=(idx,title,note)=>{
+    // console.log(idx);
+    setEditObj({
+        title:title,
+        note:note
+    })
+    setEditIndex(idx)
+    setEditNoteModal(!editNoteModal)
   }
 
   return (
@@ -25,7 +33,7 @@ const Card = ({filterData,search,setDeleteNoteModal,setIndex}) => {
               <h2>{card.title}</h2>
               <p>{card.note}</p>
               <div className="icons">
-                <div><EditRoundedIcon fontSize="small"/></div>
+                <div onClick={()=>handleEdit(idx,card.title,card.note)}><EditRoundedIcon fontSize="small"/></div>
                 <div onClick={()=>handleDelete(idx)}><DeleteForeverRoundedIcon fontSize="small"/></div>
               </div>
             </div>
@@ -37,7 +45,7 @@ const Card = ({filterData,search,setDeleteNoteModal,setIndex}) => {
                   <h2>{card.title}</h2>
                   <p>{card.note}</p>
                   <div className="icons">
-                    <div><EditRoundedIcon fontSize="small"/></div>
+                    <div onClick={()=>handleEdit(idx,card.title,card.note)}><EditRoundedIcon fontSize="small"/></div>
                     <div onClick={()=>handleDelete(idx)}><DeleteForeverRoundedIcon fontSize="small"/></div>
                   </div>
                 </div>

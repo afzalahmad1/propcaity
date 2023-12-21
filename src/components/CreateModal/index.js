@@ -6,7 +6,8 @@ import { createNotes } from "../../store/slices/NoteSlice";
 const CreateModal = ({setCreateNoteModal}) => {
     const [note,setNote] = useState({
         title:"",
-        note:""
+        note:"",
+        color:"#ffffff"
     })
     
     const dispatch = useDispatch();
@@ -15,9 +16,10 @@ const CreateModal = ({setCreateNoteModal}) => {
             ...note,
             [e.target.name]:e.target.value
         })
-        console.log(note);
+        // console.log(note);
     }
     const handleCreateNotes = ()=>{
+
         dispatch(createNotes(note))
         setCreateNoteModal(false)
     }
@@ -40,6 +42,7 @@ const CreateModal = ({setCreateNoteModal}) => {
             <textarea name="note" value={note.note} onChange={handleInputChange} id="note" cols="30" rows="5"></textarea>
           </div>
         </div>
+        <div className="color"><input type="color" name="color" value={note.color} onChange={handleInputChange}/></div>
         <div id="create-note" onClick={handleCreateNotes}>Create Note</div>
       </div>
     </div>

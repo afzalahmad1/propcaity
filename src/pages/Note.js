@@ -19,6 +19,7 @@ const Note = () => {
   const [editObj, setEditObj] = useState({
     title: "",
     note: "",
+    color:""
   });
   const [filterData, setFilterData] = useState([]);
   const notes = useSelector((state) => {
@@ -33,6 +34,7 @@ const Note = () => {
     });
     setFilterData(arr);
   }, [search]);
+
 
   return (
     <div>
@@ -76,6 +78,7 @@ const Note = () => {
               setIndex={setIndex}
               setEditObj={setEditObj}
               setEditIndex={setEditIndex}
+              
             />
           </div>
         </div>

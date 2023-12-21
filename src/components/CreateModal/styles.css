@@ -69,3 +69,15 @@
     margin-top: 1rem;
     cursor: pointer;
 }
+.color{
+    margin-top: 1rem;
+}
+
+@media screen and (max-width: 500px) and (min-width: 100px) {
+    .modal-content{
+        background-color: #fefefe;
+        padding: 1.5rem;
+        border-radius: 9px;
+        min-width: 10rem;
+    }
+  }
